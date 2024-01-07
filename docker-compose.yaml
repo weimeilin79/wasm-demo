@@ -126,7 +126,7 @@ services:
     depends_on:
       - redpanda-0
   tensorflow_python3_jupyter:
-    build: . 
+    image: docker.io/weimeilin/wasm-workshop-tensorflow 
     ports:
      - "8888:8888"
     container_name: tensorflow-python3-jupyter
