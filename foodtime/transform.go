@@ -36,14 +36,12 @@ func doTransform(e transform.WriteEvent) ([]transform.Record, error) {
 
 	// Calculate the distance between the two points
 	distance := distCalculate(restaurantLatitude, restaurantLongitude, deliveryLocationLatitude, deliveryLocationLongitude)
-	fmt.Println("Distance:", distance)
 
 	// Create a new CSV record with the calculated distance
 	resultRecord := []string{
 		record[2],              // Keep the Age
 		record[3],              // Keep the Rating
 		fmt.Sprintf("%.2f", distance), // Add the calculated distance
-		record[10],              // Keep the Times
 	}
 
 	// Convert the result record to a CSV string
@@ -51,10 +49,12 @@ func doTransform(e transform.WriteEvent) ([]transform.Record, error) {
 
 	// Convert the resultCSV string to []byte
 	resultBytes := []byte(resultCSV)
+	fmt.Println("resultCSV:{0} Time:{1}",resultCSV, record[10])
+	keyBytes := []byte(record[10])
 
 	// Create a new transform.Record
 	newRecord := transform.Record{
-		Key:   e.Record().Key,
+		Key:   keyBytes,
 		Value: resultBytes,
 	}
 

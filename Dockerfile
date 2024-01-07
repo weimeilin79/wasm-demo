@@ -7,8 +7,12 @@ WORKDIR /usr/src/app
 # Copy the project files into the container at /usr/src/app
 COPY ./delivery-model /usr/src/app
 
+# update pip version
+RUN python3 -m pip install --upgrade pip
+
 # (Optional) Install any dependencies
 RUN pip install -r requirements.txt
+
 
 # Make port 8888 available to the world outside this container
 EXPOSE 8888
