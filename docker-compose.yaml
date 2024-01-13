@@ -33,7 +33,7 @@ services:
       - --mode dev-container
       # enable logs for debugging.
       - --default-log-level=debug
-    image: docker.redpanda.com/redpandadata/redpanda:v23.3.1
+    image: docker.redpanda.com/redpandadata/redpanda:v23.3.2
     container_name: redpanda-0
     volumes:
       - redpanda-0:/var/lib/redpanda/data
@@ -60,7 +60,7 @@ services:
       - --mode dev-container
       - --default-log-level=debug
       - --seeds redpanda-0:33145
-    image: docker.redpanda.com/redpandadata/redpanda:v23.3.1
+    image: docker.redpanda.com/redpandadata/redpanda:v23.3.2
     container_name: redpanda-1
     volumes:
       - redpanda-1:/var/lib/redpanda/data
@@ -89,7 +89,7 @@ services:
       - --mode dev-container
       - --default-log-level=debug
       - --seeds redpanda-0:33145
-    image: docker.redpanda.com/redpandadata/redpanda:v23.3.1
+    image: docker.redpanda.com/redpandadata/redpanda:v23.3.2
     container_name: redpanda-2
     volumes:
       - redpanda-2:/var/lib/redpanda/data
